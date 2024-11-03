@@ -4,7 +4,7 @@ package lib;
 public class AmusementPark {
     private String name;
     private String location; 
-    private int wait_time;
+
 
     public AmusementPark(String name, String location) {
         this.name = name;
