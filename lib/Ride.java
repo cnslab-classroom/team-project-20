@@ -39,4 +39,11 @@ public class Ride {
 }
 
 
+public class Texpress extends Everland {
+    public Ride ride; 
+    private int distance[10];
 
+    public Texpress(String rideName, String rideType, int wait_time, int location) {
+        this.ride = new Ride(String rideName, String rideType, int wait_time, int location);
+    }
+}
