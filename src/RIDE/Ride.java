@@ -10,7 +10,6 @@ public abstract class Ride {
 
     // 놀이기구가 위치한 놀이공원
     private AmusementPark amusementPark;
-    // 다른 놀이기구와의 거리 배열
 
     public Ride(AmusementPark amusementPark, String rideName,
                 String rideType, int wait_time, int location) {
