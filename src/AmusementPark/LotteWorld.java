@@ -1,4 +1,4 @@
-package lib;
+package AmusementPark;
 
 // Subclass of AmusementPark: LotteWorld
 public class LotteWorld extends AmusementPark {

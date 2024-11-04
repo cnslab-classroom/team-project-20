@@ -1,7 +1,4 @@
-import lib.AmusementPark;
-import lib.Everland;
-import lib.LotteWorld;
-
+import AmusementPark.Everland;
 
 
 public class App {
@@ -9,6 +6,7 @@ public class App {
         Everland everland = new Everland("Yongin, South Korea");
         everland.displayInfo();
 
+        /*
         Everland.Rides everlandRide = new Everland.Rides("T-Express", "Roller Coaster");
         everlandRide.displayRideInfo();
 
@@ -16,6 +14,7 @@ public class App {
         lotteWorld.displayInfo();
 
         LotteWorld.Rides lotteWorldRide = new LotteWorld.Rides("Gyro Drop", "Drop Tower");
-        lotteWorldRide.displayRideInfo();    
+        lotteWorldRide.displayRideInfo();
+        */
         }
 }

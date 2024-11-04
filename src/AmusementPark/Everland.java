@@ -1,4 +1,4 @@
-package lib;
+package AmusementPark;
 
 // Subclass of AmusementPark: Everland
 public class Everland extends AmusementPark {
