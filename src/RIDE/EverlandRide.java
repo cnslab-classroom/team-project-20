@@ -1,5 +1,7 @@
 package RIDE;
 
+import java.awt.geom.Point2D;
+
 import AmusementPark.AmusementPark;
 
 public abstract class EverlandRide extends Ride {
@@ -7,7 +9,7 @@ public abstract class EverlandRide extends Ride {
 
     // 생성자
     public EverlandRide(AmusementPark amusementPark, String rideName,
-                String rideType, int wait_time, int location){
+                String rideType, int wait_time, Point2D.Double location){
         super(amusementPark, rideName, rideType, wait_time, location);
     }
 }
