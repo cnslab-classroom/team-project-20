@@ -3,17 +3,20 @@ package AmusementPark;
 import java.util.ArrayList;
 import java.util.List;
 import RIDE.*;
+import java.awt.geom.Point2D;
+
+
 
 // Base class: AmusementPark
 public abstract class AmusementPark {
     private String name;
-    private String location;
+    private Point2D.Double location;
 
     // 놀이기구 LIST
     private List<Ride> rideList;
 
 
-    public AmusementPark(String name, String location) {
+    public AmusementPark(String name, Point2D.Double location) {
         this.name = name;
         this.location = location;
         rideList = new ArrayList<Ride>();
@@ -28,7 +31,7 @@ public abstract class AmusementPark {
         return name;
     }
 
-    public String getLocation() {
+    public Point2D.Double getLocation() {
         return location;
     }
 

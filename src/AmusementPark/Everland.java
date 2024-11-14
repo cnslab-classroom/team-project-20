@@ -1,8 +1,10 @@
 package AmusementPark;
+import java.awt.geom.Point2D;
+
 
 // Subclass of AmusementPark: Everland
 public class Everland extends AmusementPark {
-    public Everland(String location) {
+    public Everland(Point2D.Double location) {
         super("Everland", location);
     }
 

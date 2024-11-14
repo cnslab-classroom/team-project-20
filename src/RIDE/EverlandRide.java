@@ -3,6 +3,8 @@ package RIDE;
 import java.awt.geom.Point2D;
 
 import AmusementPark.AmusementPark;
+import java.awt.geom.Point2D;
+
 
 public abstract class EverlandRide extends Ride {
     // 다른 놀이기구와의 거리 배열
