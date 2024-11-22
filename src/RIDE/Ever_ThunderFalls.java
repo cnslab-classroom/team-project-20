@@ -8,7 +8,7 @@ public class Ever_Thunderfalls extends EverlandRide {
 
 
     public Ever_Thunderfalls() {
-        super(new Everland(), "Thunderfalls", "adventure", 0, new Point2D.Double(37.293877, 127.198578));
+        super(new Everland(), "Thunderfalls", Ridetype.adventure, 0, new Point2D.Double(37.293877, 127.198578));
     }
     
 }

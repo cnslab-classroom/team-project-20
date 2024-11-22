@@ -7,7 +7,7 @@ import AmusementPark.Everland;
 public class Ever_ColumbusAdventure extends EverlandRide {
 
     public Ever_ColumbusAdventure() {
-        super(new Everland(), "Columbus adventure", "Flying Pirates", 0, new Point2D.Double(37.294563, 127.199364));
+        super(new Everland(), "Columbus adventure", Ridetype.adventure, 0, new Point2D.Double(37.294563, 127.199364));
 
     }
     

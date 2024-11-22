@@ -6,6 +6,12 @@ import java.awt.geom.Point2D;
 
 
 public abstract class Ride {
+
+    public enum Ridetype {
+        thrill, adventure, water, family, horror, fantasy, kids, interactive
+    }
+
+
     private String rideName;
     private String rideType;
     private int wait_time = 0;
@@ -15,13 +21,13 @@ public abstract class Ride {
     private AmusementPark amusementPark;
 
     public Ride(AmusementPark amusementPark, String rideName,
-                String rideType, int wait_time, Point2D.Double location) {
+                Ridetype ridetype, int wait_time, Point2D.Double location) {
         // 놀이공원에 놀이기구 등록
         this.amusementPark = amusementPark;
         amusementPark.addRide(this);
 
         this.rideName = rideName;
-        this.rideType = rideType;
+        this.rideType = ridetype.name();
         this.wait_time = wait_time;
         this.location = location;
     }
@@ -32,6 +38,7 @@ public abstract class Ride {
     }
 
 
+    // getter
     public String getRideName(){
         return rideName;
     };
@@ -48,6 +55,9 @@ public abstract class Ride {
         return location;
     };
 
+    
+    
+    // setter
     public void setWaitTime(int wait_time) {
 
         this.wait_time = wait_time;

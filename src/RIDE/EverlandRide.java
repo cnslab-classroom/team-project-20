@@ -9,8 +9,8 @@ public abstract class EverlandRide extends Ride {
 
     // 생성자
     public EverlandRide(AmusementPark amusementPark, String rideName,
-                String rideType, int wait_time, Point2D.Double location){
-        super(amusementPark, rideName, rideType, wait_time, location);
+                Ridetype ridetype, int wait_time, Point2D.Double location){
+        super(amusementPark, rideName, ridetype, wait_time, location);
         
     }
 
