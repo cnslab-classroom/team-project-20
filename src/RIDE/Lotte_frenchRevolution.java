@@ -1,14 +1,14 @@
 package RIDE;
 
-import AmusementPark.AmusementPark;
+import AmusementPark.LotteWorld;
 import java.awt.geom.Point2D;
 
 public class Lotte_frenchRevolution extends LotteRide {
 
 
-    public Lotte_frenchRevolution(AmusementPark amusementPark, String rideName, String rideType, int wait_time, Point2D.Double location) {
+    public Lotte_frenchRevolution() {
         
-        super(amusementPark, "French Revolution", "Corkscrew Coaster", 0, new Point2D.Double(37.510377, 127.097381));
+        super(new LotteWorld(), "French Revolution", "Corkscrew Coaster", 0, new Point2D.Double(37.510377, 127.097381));
 
     }
     
