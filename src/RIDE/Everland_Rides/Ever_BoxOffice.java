@@ -1,6 +1,8 @@
-package RIDE;
+package RIDE.Everland_Rides;
 
 import AmusementPark.Everland;
+import RIDE.Ride.Ridetype;
+
 import java.awt.geom.Point2D;
 
 public class Ever_BoxOffice extends EverlandRide {

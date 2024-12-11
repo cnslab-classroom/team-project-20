@@ -15,7 +15,7 @@ public abstract class AmusementPark {
     // 놀이기구 LIST
     private List<Ride> rideList;
 
-
+    // 놀이공원 생성자
     public AmusementPark(String name, Point2D.Double location) {
         this.name = name;
         this.location = location;
@@ -27,15 +27,18 @@ public abstract class AmusementPark {
         rideList.add(ride);
     }
 
+    // 놀이공원 이름 반환
     public String getName() {
         return name;
     }
 
+    // 놀이공원 위치 반환
     public Point2D.Double getLocation() {
         return location;
     }
-
+    
+    // 놀이공원 정보 출력
     public void displayInfo() {
-        System.out.println("Amusement Park: " + name + " | Location: " + location);
+        System.out.println("Welcome to " + name + "!\nLocation: " + location);
     }
 }

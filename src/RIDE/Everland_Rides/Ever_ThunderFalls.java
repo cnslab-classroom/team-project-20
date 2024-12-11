@@ -1,8 +1,9 @@
-package RIDE;
+package RIDE.Everland_Rides;
 
 import java.awt.geom.Point2D;
 import AmusementPark.AmusementPark;
 import AmusementPark.Everland;
+import RIDE.Ride.Ridetype;
 
 public class Ever_Thunderfalls extends EverlandRide {
 

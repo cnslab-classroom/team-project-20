@@ -13,10 +13,12 @@ public class App {
         /*
         Everland.Rides everlandRide = new Everland.Rides("T-Express", "Roller Coaster");
         everlandRide.displayRideInfo();
- */
+        */
+        
         LotteWorld lotteWorld = new LotteWorld();
         lotteWorld.displayInfo();
-    /*
+        
+        /*
         LotteWorld.Rides lotteWorldRide = new LotteWorld.Rides("Gyro Drop", "Drop Tower");
         lotteWorldRide.displayRideInfo();
         */

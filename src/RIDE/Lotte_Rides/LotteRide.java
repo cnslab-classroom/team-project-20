@@ -1,6 +1,9 @@
-package RIDE;
+package RIDE.Lotte_Rides;
 
 import AmusementPark.AmusementPark;
+import RIDE.Ride;
+import RIDE.Ride.Ridetype;
+
 import java.awt.geom.Point2D;
 
 public abstract class LotteRide extends Ride {
