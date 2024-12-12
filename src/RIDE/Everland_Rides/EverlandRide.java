@@ -18,7 +18,7 @@ public abstract class EverlandRide extends Ride {
 
     public static void allDistances(Ride[] rides) {
 
-        distance = Ride.calcDistances(rides);
+        distance = Ride.calculateGeographicalDistances(rides);
 
     }
 
