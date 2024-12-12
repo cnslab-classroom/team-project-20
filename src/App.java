@@ -1,26 +1,38 @@
 import AmusementPark.Everland;
 import AmusementPark.LotteWorld;
-import RIDE.Everland_Rides.EverlandRide;
-import RIDE.Everland_Rides.Ever_AmazonExpress;
-import RIDE.Everland_Rides.Ever_BoxOffice;
-import RIDE.Everland_Rides.Ever_ColumbusAdventure;
-import RIDE.Everland_Rides.EverlandRide;
+import Path.Service;
+import RIDE.Everland_Rides.*;
 import RIDE.Ride;
+import Path.Path;
 
-import java.awt.geom.Point2D;
+import java.util.ArrayList;
 
 
 public class App {
     public static void main(String[] args) throws Exception {
+        // 놀이기구
+        Ride T_express = new Ever_TExpress();
+        Ride amazon = new Ever_AmazonExpress();
+        Ride boxOffice = new Ever_BoxOffice();
+        Ride columbus = new Ever_ColumbusAdventure();
 
-        // Ride 객체 배열 생성
-        Ride[] everlandRides = {
-            new Ever_AmazonExpress(),
-            new Ever_BoxOffice(),
-            new Ever_ColumbusAdventure()
-        };
+        // Ride 객체 리스트 생성
+        ArrayList<Ride> testList = new ArrayList<>();
+        testList.add(T_express);
+        testList.add(new Ever_AmazonExpress());
+        testList.add(new Ever_BoxOffice());
+        testList.add(new Ever_ColumbusAdventure());
 
+        Service service = new Service(T_express, testList);
+        service.optimalPath();
+        Path path = service.getMinPath();
 
+        for(int i = 0; i < path.getPathList().size(); i++){
+            System.out.println(path.getPathList().get(i).getRideName());
+        }
+        System.out.println(path.getWeight());
+
+        /*
         // 모든 놀이기구 간 거리 계산
         EverlandRide.allDistances(everlandRides);
         System.out.println("에버랜드 놀이기구 거리 2차원 배열:");
@@ -46,5 +58,6 @@ public class App {
         System.out.println("예제 코드 2 : 놀이기구 인스턴스 사이 거리 계산");
         result = new Ever_AmazonExpress().calculateDistanceBetweenRides(new Ever_ColumbusAdventure());
         System.out.println(result);
+         */
     }
 }
