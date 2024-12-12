@@ -10,7 +10,7 @@ public class App {
         Everland everland = new Everland();
         everland.displayInfo();
 
-        /*
+        /*//
         Everland.Rides everlandRide = new Everland.Rides("T-Express", "Roller Coaster");
         everlandRide.displayRideInfo();
         */
