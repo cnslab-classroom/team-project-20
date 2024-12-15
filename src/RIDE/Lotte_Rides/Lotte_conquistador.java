@@ -9,7 +9,7 @@ public class Lotte_conquistador extends LotteRide {
 
     public Lotte_conquistador() {
         
-        super(new LotteWorld(), "Conquistador", Ridetype.adventure, 0, new Point2D.Double(37.511337, 127.099331));
+        super("Conquistador", Ridetype.adventure, 0, new Point2D.Double(37.511337, 127.099331));
 
     }
     
