@@ -23,15 +23,20 @@ public class App {
         testList.add(boxOffice);
         testList.add(columbus);
 
-        
+        // 서비스 객체 생성
         Service service = new Service(T_express, testList);
         service.optimalPath();  // 최단 경로 구하는 과정 출력
         Path path = service.getMinPath();
 
+        // 최단 경로 출력
+        System.out.print("\n\n최단 경로 : ");
         for(int i = 0; i < path.getPathList().size(); i++){
-            System.out.println(path.getPathList().get(i).getRideName());
+            System.out.print(path.getPathList().get(i).getRideName());
+            if (i < path.getPathList().size() - 1) {
+                System.out.print(" -> ");
+            }  
         }
-        System.out.println(path.getWeight());
+        System.out.println("\n최소 가중치 : " + path.getWeight());
 
         /*
         // 모든 놀이기구 간 거리 계산
