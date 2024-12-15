@@ -30,8 +30,12 @@ public class Path implements Comparable<Path> {
         Ride lastRide = pathList.get(pathList.size() - 1);
         // 경로 추가
         pathList.add(ride);
-        // 가중치 추가
-        weight += lastRide.calculateDistanceBetweenRides(ride);
+        
+        // 놀이기구 간 거리 계산
+        double distance = lastRide.calculateDistanceBetweenRides(ride);
+     
+        // 거리 -> 시간 변환 (100m당 1.2분)
+        weight += (distance / 100.0) * 1.2;
     }
 
     public double getWeight(){
