@@ -29,7 +29,11 @@ public class Everland extends AmusementPark {
     public Everland() {
         super("Everland", new Point2D.Double(37.294115, 127.202470));
         everlandRides = new ArrayList<>();
+        initializeRides();
+    }
 
+
+    private void initializeRides() {
         // 에버랜드 놀이기구 리스트 생성
         everlandRides.add(amazonExpress);
         everlandRides.add(boxOffice);
@@ -38,4 +42,8 @@ public class Everland extends AmusementPark {
         everlandRides.add(tExpress);
         everlandRides.add(thunderFalls);
     }
+
+    public ArrayList<Ride> getEverlandRides() {
+        return everlandRides;
+    }    
 }

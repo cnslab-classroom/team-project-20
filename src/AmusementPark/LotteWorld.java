@@ -19,8 +19,8 @@ import RIDE.Lotte_Rides.Lotte_pharaohFury;
 // Subclass of AmusementPark: LotteWorld
 public class LotteWorld extends AmusementPark {
 
-        // 모든 에버랜드 놀이기구 목록
-    public ArrayList<Ride> lotteWorldRides;
+    // 모든 에버랜드 놀이기구 목록
+    private ArrayList<Ride> lotteWorldRides;
 
     // 에버랜드 놀이기구
     private static final Ride atlantisAdventure = new Lotte_atlantisAdventure();
@@ -34,13 +34,20 @@ public class LotteWorld extends AmusementPark {
         super("Lotte World",new Point2D.Double(37.511205, 127.098371));
 
         lotteWorldRides = new ArrayList<>();
-
-        // 에버랜드 놀이기구 리스트 생성
-        lotteWorldRides.add(atlantisAdventure);
-        lotteWorldRides.add(boxOffice);
-        lotteWorldRides.add(conquistador);
-        lotteWorldRides.add(flumeRide);
-        lotteWorldRides.add(frenchRevolution);
-        lotteWorldRides.add(pharoahFury);
+        initializeRides();
     }
+
+    private void initializeRides() {
+            // 에버랜드 놀이기구 리스트 생성
+            lotteWorldRides.add(atlantisAdventure);
+            lotteWorldRides.add(boxOffice);
+            lotteWorldRides.add(conquistador);
+            lotteWorldRides.add(flumeRide);
+            lotteWorldRides.add(frenchRevolution);
+            lotteWorldRides.add(pharoahFury);
+    }
+
+    public ArrayList<Ride> getLotteWorldRides() {
+        return lotteWorldRides;
+    }    
 }
