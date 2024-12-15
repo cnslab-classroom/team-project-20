@@ -10,7 +10,11 @@ public class Service {
     private PriorityQueue<Path> pq;
 
     public Service(Ride startRide, ArrayList<Ride> rideList){
+        // 시작 놀이기구는 리스트에서 제거
+        rideList.removeIf(ride -> ride.getRideName().equals(startRide.getRideName())); // Replace getName() with the unique property of Ride
+        
         this.rideList = rideList;
+
         // 초기 최댓값
         minPath = new Path(100000);
 

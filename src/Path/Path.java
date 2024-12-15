@@ -35,8 +35,9 @@ public class Path implements Comparable<Path> {
         double distance = lastRide.calculateDistanceBetweenRides(ride);
      
         // 거리 -> 시간 변환 (100m당 1.2분)
-        weight += (distance / 100.0) * 1.2;
+        weight += (distance / 100.0) * 1.5;
     }
+
 
     public double getWeight(){
         return weight;
