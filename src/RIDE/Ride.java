@@ -5,9 +5,31 @@ import AmusementPark.AmusementPark;
 import java.awt.geom.Point2D;
 
 
+
+import java.util.ArrayList;
+import java.util.List;
+
+
+
+
 // Ride Class
 public abstract class Ride {
 
+    // 특정 타입에 해당하는 놀이기구 반환
+    public static List<Ride> getRidesByType(List<Ride> allRides, List<String> types) {
+        List<Ride> filteredRides = new ArrayList<>();
+    
+        for (Ride ride : allRides) {
+            if (types.contains(ride.getRideType())) {
+                filteredRides.add(ride);
+            }
+        }
+    
+        return filteredRides;
+    }
+    
+
+    // 놀이기구 타입
     public enum Ridetype {
         thrill, adventure, water, family, horror, fantasy, kids, interactive
     }

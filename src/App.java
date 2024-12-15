@@ -6,6 +6,7 @@ import RIDE.Ride;
 import Path.Path;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class App {
@@ -23,6 +24,20 @@ public class App {
         testList.add(boxOffice);
         testList.add(columbus);
 
+
+
+        // 특정 타입에 해당하는 놀이기구 리스트 가져오기
+        List<String> types = List.of("thrill", "adventure");
+
+        List<Ride> filteredRides = Ride.getRidesByType(testList, types);
+
+        for (Ride ride : filteredRides) {
+            System.out.println(ride.getRideName() + " (" + ride.getRideType() + ")");
+        }   
+        System.out.println();
+
+
+
         // 서비스 객체 생성
         Service service = new Service(T_express, testList);
         service.optimalPath();  // 최단 경로 구하는 과정 출력
@@ -37,6 +52,10 @@ public class App {
             }  
         }
         System.out.println("\n최소 가중치 : " + path.getWeight());
+
+
+
+
 
         /*
         // 모든 놀이기구 간 거리 계산
