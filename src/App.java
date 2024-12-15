@@ -19,12 +19,13 @@ public class App {
         // Ride 객체 리스트 생성
         ArrayList<Ride> testList = new ArrayList<>();
         testList.add(T_express);
-        testList.add(new Ever_AmazonExpress());
-        testList.add(new Ever_BoxOffice());
-        testList.add(new Ever_ColumbusAdventure());
+        testList.add(amazon);
+        testList.add(boxOffice);
+        testList.add(columbus);
 
+        
         Service service = new Service(T_express, testList);
-        service.optimalPath();
+        service.optimalPath();  // 최단 경로 구하는 과정 출력
         Path path = service.getMinPath();
 
         for(int i = 0; i < path.getPathList().size(); i++){

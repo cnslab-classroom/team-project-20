@@ -53,10 +53,17 @@ public class Service {
     public void optimalPath(){
         while(!pq.isEmpty()){
             Path path = pq.poll();
+            // 경로 출력
+            System.out.print("경로 : ");
             for(int i = 0; i < path.getPathList().size(); i++){
-                System.out.println(path.getPathList().get(i).getRideName());
+                System.out.print(path.getPathList().get(i).getRideName());
+                if (i < path.getPathList().size() - 1) {
+                    System.out.print(" -> ");
+                }  
             }
-            System.out.println();
+
+            // 해당 경로의 가중치 출력
+            System.out.println("\n가중치 : " + path.getWeight() + "\n");
             nextRide(path);
         }
     }
