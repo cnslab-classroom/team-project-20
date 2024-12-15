@@ -11,35 +11,31 @@ import java.util.List;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        // 놀이기구
-        Ride T_express = new Ever_TExpress();
-        Ride amazon = new Ever_AmazonExpress();
-        Ride boxOffice = new Ever_BoxOffice();
-        Ride columbus = new Ever_ColumbusAdventure();
+        LotteWorld lotteworld = new LotteWorld();
+        Everland everland = new Everland();
 
-        // Ride 객체 리스트 생성
-        ArrayList<Ride> testList = new ArrayList<>();
-        testList.add(T_express);
-        testList.add(amazon);
-        testList.add(boxOffice);
-        testList.add(columbus);
+        List<Ride> everlandRides = everland.getEverlandRides();
+        List<Ride> lotteWorldRides = lotteworld.getLotteWorldRides();
 
 
+        
 
         // 특정 타입에 해당하는 놀이기구 리스트 가져오기
-        List<String> types = List.of("thrill", "adventure");
+        List<String> types = List.of("thrill", "adventure","family","fantasy");
 
-        List<Ride> filteredRides = Ride.getRidesByType(testList, types);
+        List<Ride> filteredRides = Ride.getRidesByType(everlandRides, types);
 
         for (Ride ride : filteredRides) {
             System.out.println(ride.getRideName() + " (" + ride.getRideType() + ")");
         }   
         System.out.println();
 
+        Ride tExpress = new Ever_TExpress();
 
 
+    
         // 서비스 객체 생성
-        Service service = new Service(T_express, testList);
+        Service service = new Service(tExpress, everland.everlandRides);
         service.optimalPath();  // 최단 경로 구하는 과정 출력
         Path path = service.getMinPath();
 
