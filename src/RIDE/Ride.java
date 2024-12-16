@@ -39,6 +39,7 @@ public abstract class Ride {
     private int wait_time = 0;
     private Point2D.Double location;
 
+    
     // 놀이기구가 위치한 놀이공원
     private AmusementPark amusementPark;
 
