@@ -1,4 +1,6 @@
 import javax.swing.*;
+import javax.swing.border.TitledBorder;
+import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -7,7 +9,6 @@ import Path.Path;
 import RIDE.Ride;
 import AmusementPark.Everland;
 import AmusementPark.LotteWorld;
-import RIDE.Everland_Rides.*;
 
 public class RidePlannerGUI {
     public static void main(String[] args) {
@@ -22,54 +23,95 @@ public class RidePlannerGUI {
 
         // Top panel for park and ride type selection
         JPanel selectionPanel = new JPanel();
-        selectionPanel.setLayout(new GridLayout(2, 1, 10, 10));
+        selectionPanel.setLayout(new GridLayout(3, 2, 10, 10));
 
-        // Dropdown for amusement park
         JComboBox<String> amusementParkDropdown = new JComboBox<>(new String[]{"Everland", "LotteWorld"});
-
-        // Checkboxes for all ride types
+        JComboBox<String> startingRideComboBox = new JComboBox<>();
         JCheckBox adventureCheckBox = new JCheckBox("Adventure");
         JCheckBox familyCheckBox = new JCheckBox("Family");
 
-        // Panel for checkboxes
-        JPanel checkBoxPanel = new JPanel(new GridLayout(2, 4, 10, 10));
-        checkBoxPanel.add(adventureCheckBox);
-        checkBoxPanel.add(familyCheckBox);
-
-        // Add components to the selection panel
         selectionPanel.add(new JLabel("Select Amusement Park:"));
         selectionPanel.add(amusementParkDropdown);
+        selectionPanel.add(new JLabel("Select Starting Ride:"));
+        selectionPanel.add(startingRideComboBox);
         selectionPanel.add(new JLabel("Select Ride Types:"));
+        JPanel checkBoxPanel = new JPanel(new GridLayout(1, 2));
+        checkBoxPanel.add(adventureCheckBox);
+        checkBoxPanel.add(familyCheckBox);
         selectionPanel.add(checkBoxPanel);
 
         // Button to calculate
         JButton calculateButton = new JButton("Find Optimal Path");
 
-        // Result panel
-        JPanel resultPanel = new JPanel();
-        resultPanel.setLayout(new BoxLayout(resultPanel, BoxLayout.Y_AXIS));
+        // Result panel with "결과" title
+        JPanel resultPanel = new JPanel(new GridBagLayout());
+        resultPanel.setBorder(BorderFactory.createTitledBorder(
+                new LineBorder(Color.GRAY, 2, true),
+                "결과", TitledBorder.LEFT, TitledBorder.TOP,
+                new Font("SansSerif", Font.BOLD, 14), Color.BLACK));
+
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.insets = new Insets(5, 5, 5, 5);
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+
+        // Labels for results
         JLabel distanceLabel = new JLabel("Total distance: ");
+        distanceLabel.setForeground(Color.BLUE);
+        JLabel distanceValue = new JLabel();
+        distanceValue.setForeground(Color.BLACK);
+
         JLabel timeLabel = new JLabel("Total time taken: ");
-        JLabel optimalPathLabel = new JLabel("Optimal Path: ");
-        resultPanel.add(distanceLabel);
-        resultPanel.add(timeLabel);
-        resultPanel.add(optimalPathLabel);
+        timeLabel.setForeground(Color.BLUE);
+        JLabel timeValue = new JLabel();
+        timeValue.setForeground(Color.BLACK);
+
+        JLabel pathLabel = new JLabel("Optimal Path: ");
+        pathLabel.setForeground(Color.BLUE);
+        JLabel pathValue = new JLabel();
+        pathValue.setForeground(Color.BLACK);
+
+        // Add components to resultPanel
+        gbc.gridx = 0; gbc.gridy = 0;
+        resultPanel.add(distanceLabel, gbc);
+        gbc.gridx = 1; gbc.gridy = 0;
+        resultPanel.add(distanceValue, gbc);
+
+        gbc.gridx = 0; gbc.gridy = 1;
+        resultPanel.add(timeLabel, gbc);
+        gbc.gridx = 1; gbc.gridy = 1;
+        resultPanel.add(timeValue, gbc);
+
+        gbc.gridx = 0; gbc.gridy = 2;
+        resultPanel.add(pathLabel, gbc);
+        gbc.gridx = 1; gbc.gridy = 2;
+        resultPanel.add(pathValue, gbc);
+
+        // Bottom panel for the button
+        JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        buttonPanel.add(calculateButton);
 
         // Add components to the main panel
         mainPanel.add(selectionPanel, BorderLayout.NORTH);
-        mainPanel.add(calculateButton, BorderLayout.CENTER);
-        mainPanel.add(resultPanel, BorderLayout.SOUTH);
+        mainPanel.add(resultPanel, BorderLayout.CENTER);
+        mainPanel.add(buttonPanel, BorderLayout.SOUTH);
 
-        // Add the main panel to the frame
         frame.add(mainPanel);
 
         // Data setup
         Everland everland = new Everland();
         LotteWorld lotteworld = new LotteWorld();
-
         ArrayList<Ride> everlandRides = everland.getEverlandRides();
         ArrayList<Ride> lotteWorldRides = lotteworld.getLotteWorldRides();
-        // Add rides to LotteWorld here if needed
+
+        // Update startingRideComboBox based on selected amusement park
+        amusementParkDropdown.addActionListener(e -> {
+            startingRideComboBox.removeAllItems();
+            ArrayList<Ride> rides = amusementParkDropdown.getSelectedItem().equals("Everland") ? everlandRides : lotteWorldRides;
+            for (Ride ride : rides) {
+                startingRideComboBox.addItem(ride.getRideName());
+            }
+        });
+        amusementParkDropdown.setSelectedIndex(0);
 
         // Calculate the optimal path
         calculateButton.addActionListener(e -> {
@@ -80,35 +122,25 @@ public class RidePlannerGUI {
                 selectedRides.addAll(lotteWorldRides);
             }
 
-            // Filter rides by selected types
             List<String> selectedTypes = new ArrayList<>();
             if (adventureCheckBox.isSelected()) selectedTypes.add("adventure");
             if (familyCheckBox.isSelected()) selectedTypes.add("family");
 
             List<Ride> filteredRides = Ride.getRidesByType(selectedRides, selectedTypes);
 
-            // Check if there are rides for each selected type and more than one ride in total
-            boolean allTypesHaveRides = selectedTypes.stream()
-                .allMatch(type -> filteredRides.stream().anyMatch(ride -> ride.getRideType().equals(type)));
+            String startingRideName = (String) startingRideComboBox.getSelectedItem();
+            Ride startingRide = selectedRides.stream()
+                    .filter(ride -> ride.getRideName().equals(startingRideName))
+                    .findFirst()
+                    .orElse(filteredRides.get(0));
 
-            if (filteredRides.size() < 2 || !allTypesHaveRides) {
-                JOptionPane.showMessageDialog(frame, "No rides match the selected types or not enough rides to form a path.", "Error", JOptionPane.ERROR_MESSAGE);
-                return;
-            }
-
-            // Use the first ride in the filtered list as the starting ride
-            Ride startingRide = filteredRides.get(0);
-
-            // Calculate optimal path
             Service service = new Service(startingRide, new ArrayList<>(filteredRides));
             service.optimalPath();
             Path minPath = service.getMinPath();
 
-            // Update labels with results
-            distanceLabel.setText("Total distance: " + minPath.getWeight() * 100 / 1.5 + " meters");
-            timeLabel.setText("Total time taken: " + minPath.getWeight() + " minutes");
+            distanceValue.setText(String.format("%.2f meters", minPath.getWeight() * 100 / 1.5));
+            timeValue.setText(String.format("%.2f minutes", minPath.getWeight()));
 
-            // Update optimal path label
             StringBuilder pathString = new StringBuilder();
             for (int i = 0; i < minPath.getPathList().size(); i++) {
                 pathString.append(minPath.getPathList().get(i).getRideName());
@@ -116,10 +148,9 @@ public class RidePlannerGUI {
                     pathString.append(" -> ");
                 }
             }
-            optimalPathLabel.setText("Optimal Path: " + pathString);
+            pathValue.setText(pathString.toString());
         });
 
-        // Show the frame
         frame.setVisible(true);
     }
 }

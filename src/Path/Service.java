@@ -45,7 +45,7 @@ public class Service {
     // 최단 경로 확인
     boolean minPath(Path path){
         if(path.getWeight() < minPath.getWeight()){
-            if(path.pathSize() == rideList.size()){
+            if(path.pathSize() - 1 == rideList.size()){
                 minPath = new Path(path);
             }
            return true;
@@ -65,7 +65,6 @@ public class Service {
                     System.out.print(" -> ");
                 }  
             }
-
             // 해당 경로의 가중치 출력
             System.out.println("\n가중치 : " + path.getWeight() + "\n");
             nextRide(path);

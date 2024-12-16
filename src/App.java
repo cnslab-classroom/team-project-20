@@ -18,22 +18,22 @@ public class App {
         List<Ride> lotteWorldRides = lotteworld.getLotteWorldRides();
 
 
-        
+
 
         // 특정 타입에 해당하는 놀이기구 리스트 가져오기
-        List<String> types = List.of("thrill", "adventure","family","fantasy");
+        List<String> types = List.of("family");
 
         List<Ride> filteredRides = Ride.getRidesByType(everlandRides, types);
 
         for (Ride ride : filteredRides) {
             System.out.println(ride.getRideName() + " (" + ride.getRideType() + ")");
-        }   
+        }
         System.out.println();
 
         Ride tExpress = new Ever_TExpress();
 
 
-    
+
         // 서비스 객체 생성
         Service service = new Service(tExpress, everland.everlandRides);
         service.optimalPath();  // 최단 경로 구하는 과정 출력
@@ -45,7 +45,7 @@ public class App {
             System.out.print(path.getPathList().get(i).getRideName());
             if (i < path.getPathList().size() - 1) {
                 System.out.print(" -> ");
-            }  
+            }
         }
         System.out.println("\n최소 가중치 : " + path.getWeight());
 
