@@ -28,25 +28,13 @@ public class RidePlannerGUI {
         JComboBox<String> amusementParkDropdown = new JComboBox<>(new String[]{"Everland", "LotteWorld"});
 
         // Checkboxes for all ride types
-        JCheckBox thrillCheckBox = new JCheckBox("Thrill");
         JCheckBox adventureCheckBox = new JCheckBox("Adventure");
-        JCheckBox waterCheckBox = new JCheckBox("Water");
         JCheckBox familyCheckBox = new JCheckBox("Family");
-        JCheckBox horrorCheckBox = new JCheckBox("Horror");
-        JCheckBox fantasyCheckBox = new JCheckBox("Fantasy");
-        JCheckBox kidsCheckBox = new JCheckBox("Kids");
-        JCheckBox interactiveCheckBox = new JCheckBox("Interactive");
 
         // Panel for checkboxes
         JPanel checkBoxPanel = new JPanel(new GridLayout(2, 4, 10, 10));
-        checkBoxPanel.add(thrillCheckBox);
         checkBoxPanel.add(adventureCheckBox);
-        checkBoxPanel.add(waterCheckBox);
         checkBoxPanel.add(familyCheckBox);
-        checkBoxPanel.add(horrorCheckBox);
-        checkBoxPanel.add(fantasyCheckBox);
-        checkBoxPanel.add(kidsCheckBox);
-        checkBoxPanel.add(interactiveCheckBox);
 
         // Add components to the selection panel
         selectionPanel.add(new JLabel("Select Amusement Park:"));
@@ -94,14 +82,8 @@ public class RidePlannerGUI {
 
             // Filter rides by selected types
             List<String> selectedTypes = new ArrayList<>();
-            if (thrillCheckBox.isSelected()) selectedTypes.add("thrill");
             if (adventureCheckBox.isSelected()) selectedTypes.add("adventure");
-            if (waterCheckBox.isSelected()) selectedTypes.add("water");
             if (familyCheckBox.isSelected()) selectedTypes.add("family");
-            if (horrorCheckBox.isSelected()) selectedTypes.add("horror");
-            if (fantasyCheckBox.isSelected()) selectedTypes.add("fantasy");
-            if (kidsCheckBox.isSelected()) selectedTypes.add("kids");
-            if (interactiveCheckBox.isSelected()) selectedTypes.add("interactive");
 
             List<Ride> filteredRides = Ride.getRidesByType(selectedRides, selectedTypes);
 

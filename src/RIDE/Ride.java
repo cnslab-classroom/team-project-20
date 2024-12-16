@@ -31,7 +31,7 @@ public abstract class Ride {
 
     // 놀이기구 타입
     public enum Ridetype {
-        thrill, adventure, water, family, horror, fantasy, kids, interactive
+        adventure, family
     }
 
     private String rideName;
