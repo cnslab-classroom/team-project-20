@@ -20,21 +20,40 @@ import RIDE.Lotte_Rides.Lotte_pharaohFury;
 public class LotteWorld extends AmusementPark {
 
     // 모든 에버랜드 놀이기구 목록
-    private ArrayList<Ride> lotteWorldRides;
-
-    // 에버랜드 놀이기구
-    private static final Ride atlantisAdventure = new Lotte_atlantisAdventure();
-    private static final Ride boxOffice = new Lotte_boxoffice();
-    private static final Ride conquistador = new Lotte_conquistador();
-    private static final Ride flumeRide = new Lotte_flumeride();
-    private static final Ride frenchRevolution = new Lotte_frenchRevolution();
-    private static final Ride pharoahFury = new Lotte_pharaohFury();
-
-    public LotteWorld() {
-        super("Lotte World",new Point2D.Double(37.511205, 127.098371));
-
-        lotteWorldRides = new ArrayList<>();
-        initializeRides();
+    private static ArrayList<Ride> lotteWorldRides;
+    
+        // 에버랜드 놀이기구
+        private static final Ride atlantisAdventure = new Lotte_atlantisAdventure();
+        private static final Ride boxOffice = new Lotte_boxoffice();
+        private static final Ride conquistador = new Lotte_conquistador();
+        private static final Ride flumeRide = new Lotte_flumeride();
+        private static final Ride frenchRevolution = new Lotte_frenchRevolution();
+        private static final Ride pharoahFury = new Lotte_pharaohFury();
+    
+        public LotteWorld() {
+            super("Lotte World",new Point2D.Double(37.511205, 127.098371));
+    
+            lotteWorldRides = new ArrayList<>();
+            initializeRides();
+        }
+    
+        // 놀이기구 대기시간 설정
+        public static void setWaitTime() {
+            atlantisAdventure.setWaitTime(10);
+            boxOffice.setWaitTime(15);
+            conquistador.setWaitTime(20);
+            flumeRide.setWaitTime(25);
+            frenchRevolution.setWaitTime(30);
+            pharoahFury.setWaitTime(35);
+        }
+    
+        // 놀이기구 대기시간 가져오기
+        public static int getWaitTime() {
+            int total = 0;
+            for (Ride ride : lotteWorldRides) {
+            total += ride.getWaitTime();
+        }
+        return total;
     }
 
     private void initializeRides() {
