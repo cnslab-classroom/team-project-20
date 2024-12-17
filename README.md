@@ -9,7 +9,7 @@
 
 </br>
 
-## 시연영상 (한국어)
+## 시연영상 
 [<img src="https://github.com/user-attachments/assets/352951b6-8fb0-4513-83c0-b8b1b3a7b1ff" width="500" height="300" />](https://www.youtube.com/watch?v=8imn3sIpar8)
 </br></br>
 
