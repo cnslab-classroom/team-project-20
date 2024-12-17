@@ -4,7 +4,7 @@
 
 ## Team Name and Members
 
-**Team 20** - Jooho Kim, Pyeongjong Kang, Taebin Im, Jinwoo Jung
+**Team 20** - Juho Kim, Pyeongjong Kang, Taebin Im, Jinwoo Jung
 
 </br>
 
@@ -41,7 +41,7 @@ With these features, users will receive optimized movement routes starting from 
 ## Role Distribution (~300 characters)
 
 - **Pyeongjong Kang**: Algorithm design and implementation, class structure implementation  
-- **Jooho Kim**: Class structure design and implementation  
+- **Juho Kim**: Class structure design and implementation  
 - **Taebin Im**: Class structure design and implementation  
 - **Jinwoo Jung**: Research and development assistance, documentation support  
 
