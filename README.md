@@ -1,3 +1,6 @@
+[![English](https://img.shields.io/badge/lang-English-blue.svg)](https://github.com/cnslab-classroom/team-project-20/main/README.EN.md)
+[![한국어](https://img.shields.io/badge/lang-한국어-red.svg)](https://github.com/cnslab-classroom/team-project-20/blob/main/README.md)
+
 # Project Proposal
 
 ## 팀명 및 팀원
@@ -5,6 +8,10 @@
 **20조** - 김주호, 강평종, 임태빈, 정진우
 
 </br>
+
+## 시연영상 (한국어)
+[<img src="https://github.com/user-attachments/assets/352951b6-8fb0-4513-83c0-b8b1b3a7b1ff" width="500" height="300" />](https://www.youtube.com/watch?v=8imn3sIpar8)
+</br></br>
 
 
 ## 프로젝트 개요 (~300자)
@@ -71,3 +78,10 @@
 ## 기대 효과 및 마무리 (~200자)
 
 사용자는 대기시간을 줄이고 놀이기구 간 효율적인 이동 경로를 통해 체력 소모와 시간을 절약할 수 있습니다. 이 프로젝트는 객체지향 프로그래밍과 알고리즘을 실습하며, 실생활에서 유용하게 활용될 수 있는 프로그램을 완성하는 경험을 제공합니다.
+</br></br>
+
+
+## 참고문헌
+- [하버사인 공식이란?](https://kayuse88.github.io/haversine/)
+- [너비우선탐색 알고리즘](https://velog.io/@sukong/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EA%B0%9C%EB%85%90-%EB%84%88%EB%B9%84%EC%9A%B0%EC%84%A0%ED%83%90%EC%83%89BFS-lp8zywtn)
+- [힙 정렬](https://gmlwjd9405.github.io/2018/05/10/algorithm-heap-sort.html)
