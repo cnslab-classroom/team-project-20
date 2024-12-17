@@ -1,4 +1,4 @@
-[![English](https://img.shields.io/badge/lang-English-blue.svg)](https://github.com/cnslab-classroom/team-project-20/main/README.EN.md)
+[![English](https://img.shields.io/badge/lang-English-blue.svg)](https://github.com/cnslab-classroom/team-project-20/blob/main/README.EN.md)
 [![한국어](https://img.shields.io/badge/lang-한국어-red.svg)](https://github.com/cnslab-classroom/team-project-20/blob/main/README.md)
 
 # Project Proposal
